@@ -7,23 +7,11 @@
       "oxidModuleConnector\\Composer\\": "src"
     }
   },
-  "repositories": {
-    "ioly/ioly" : {
-      "type": "vcs",
-      "url": "https://github.com/ioly/ioly.git"
-    },
-    "oxidprojects/oxid-module-connector": {
-      "type": "vcs",
-      "url": "https://github.com/OXIDprojects/OXID-Module-Connector.git"
-    }
-  },
   "extra": {
     "class": "oxidModuleConnector\\Composer\\ModuleInstallerPlugin"
   },
   "require": {
-    "composer-plugin-api": "^1.0",
-    "ioly/ioly": "dev-core",
-    "oxidprojects/oxid-module-connector": "dev-recipes"
+    "composer-plugin-api": "^1.0"
   },
   "require-dev": {
     "composer/composer": "^1.3"

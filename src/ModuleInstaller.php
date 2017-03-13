@@ -148,12 +148,11 @@ class ModuleInstaller extends LibraryInstaller
         }
         if ($this->composer->getPackage()) {
             $extra = $this->getPluginExtra();
-            $shopVersion = $extra['oxidversion'];
-            if (empty($shopVersion)) {
+            if (!isset($extra['oxidversion']) || $extra['oxidversion'] == '') {
                 $this->logger->warning("Please set extra > omc-composer-installer > oxidversion in composer.json!");
-
                 return false;
             }
+            $shopVersion = $extra['oxidversion'];
             $this->ioly->setSystemVersion($shopVersion);
             $this->iolyTriggered = true;
             // set cookbooks
