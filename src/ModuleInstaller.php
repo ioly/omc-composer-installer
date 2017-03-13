@@ -112,7 +112,12 @@ class ModuleInstaller extends LibraryInstaller
     {
         $this->ioly = new ioly();
         $vendorPath = $this->composer->getConfig()->get('vendor-dir');
-        $this->ioly->setSystemBasePath($vendorPath . DIRECTORY_SEPARATOR . "..");
+        // OXID 6 has a source subfolder...
+        if (file_exists($vendorPath . DIRECTORY_SEPARATOR . ".."  . DIRECTORY_SEPARATOR . "source")) {
+            $this->ioly->setSystemBasePath($vendorPath . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "source");
+        } else {
+            $this->ioly->setSystemBasePath($vendorPath . DIRECTORY_SEPARATOR . "..");
+        }
         // add new OXID Connector cookbook instead of old ioly cookbook!
         $this->ioly->removeCookbook('ioly');
     }

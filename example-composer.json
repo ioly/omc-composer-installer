@@ -5,7 +5,7 @@
     {
       "name": "omc/omc-composer-installer",
       "type": "vcs",
-      "url": "git@glass.shoptimax.de:internal/omc-composer-installer.git"
+      "url": "https://github.com/ioly/composer-installer.git"
     }
   ],
   "require": {

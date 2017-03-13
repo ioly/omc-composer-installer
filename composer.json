@@ -3,20 +3,20 @@
   "type": "composer-plugin",
   "license": "MIT",
   "autoload": {
-    "psr-4": {"oxidModuleConnector\\Composer\\": "src"}
+    "psr-4": {
+      "oxidModuleConnector\\Composer\\": "src"
+    }
   },
-  "repositories": [
-    {
-      "name": "oxidprojects/oxid-module-connector",
-      "type": "vcs",
-      "url": "https://github.com/OXIDprojects/OXID-Module-Connector.git"
-    },
-    {
-      "name": "ioly/ioly",
+  "repositories": {
+    "ioly/ioly" : {
       "type": "vcs",
       "url": "https://github.com/ioly/ioly.git"
+    },
+    "oxidprojects/oxid-module-connector": {
+      "type": "vcs",
+      "url": "https://github.com/OXIDprojects/OXID-Module-Connector.git"
     }
-  ],
+  },
   "extra": {
     "class": "oxidModuleConnector\\Composer\\ModuleInstallerPlugin"
   },
