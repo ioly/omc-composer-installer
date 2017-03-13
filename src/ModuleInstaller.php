@@ -110,6 +110,10 @@ class ModuleInstaller extends LibraryInstaller
      */
     public function initIoly()
     {
+        // check if ioly plugin loaded
+        if (!class_exists('ioly')) {
+            return;
+        }
         $this->ioly = new ioly();
         $vendorPath = $this->composer->getConfig()->get('vendor-dir');
         // OXID 6 has a source subfolder...
@@ -141,6 +145,10 @@ class ModuleInstaller extends LibraryInstaller
      */
     public function handleOmcPackages()
     {
+        // check if ioly plugin loaded
+        if (!class_exists('ioly')) {
+            return false;
+        }
         if ($this->iolyTriggered) {
             $this->logger->warning("omc install already triggered!");
 
