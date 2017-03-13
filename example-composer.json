@@ -1,0 +1,29 @@
+{
+  "name": "my/oxid-project",
+  "license": "MIT",
+  "repositories": [
+    {
+      "name": "omc/omc-composer-installer",
+      "type": "vcs",
+      "url": "git@glass.shoptimax.de:internal/omc-composer-installer.git"
+    }
+  ],
+  "require": {
+    "omc/omc-composer-installer": "*"
+  },
+  "extra": {
+    "omc-composer-installer": {
+      "oxidversion": "4.10",
+      "cookbooks": {
+        "omc": "https://github.com/OXIDprojects/OXID-Modul-Connector/archive/recipes.zip"
+      },
+      "modules": {
+        "jkrug/ocbcleartmp": "1.0.0-v47",
+        "acirtautas/oxidmoduleinternals": "0.3.1"
+      },
+      "settings": {
+        "alwaysRunOnUpdate": "true"
+      }
+    }
+  }
+}
