@@ -5,8 +5,6 @@
 Der Composer-Installer kann über die composer.json eures Projektes installiert werden. Diese
 sollte aktuell im Hauptverzeichnis des Shops liegen, wo auch der "vendor"-Ordner erstellt wird.
 
-__Hinweis__: OXID 6 wird durch die Struktur mit einem "source"-Unterordner noch nicht unterstützt, das kommt aber in Kürze! :)
-
 In der "composer.json" könnt ihr dann direkt omc-Module über Composer installieren lassen, hier 
 ein Beispiel:
 
@@ -52,8 +50,12 @@ ein Beispiel:
 ```
 
 siehe auch "example-composer.json" im Projekt.
-Im __"extra"__-Bereich konfiguriert ihr den omc Composer Installer, Pflicht sind hier mindestens "oxidversion", ein __"Cookbook"__ im "cookbooks"-Array
+
+Neben dem Composer-Installer muss auch __der ioly-Core__ sowie der __"recipes"-Branch des OXID Modul-Connectors__ integriert werden. 
+
+Im __"extra"__-Bereich wird der omc Composer Installer konfiguriert, Pflicht sind hier mindestens "oxidversion" (z.B. 4.10 oder 5.3), ein __"Cookbook"__ im "cookbooks"-Array
 sowie natürlich mindestens ein omc-Modul ;)
+
 Bei jedem "composer install" oder "composer update" wird dann das "modules"-Array durchgegangen und
 noch nicht im Shop installierte Module automatisch (über den ioly-Core) installiert.
 
