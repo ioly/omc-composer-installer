@@ -17,6 +17,11 @@ use Composer\Installer\InstallerInterface;
 use Composer\Repository\InstalledRepositoryInterface;
 use ioly\ioly;
 
+// Composer doesn't autoload other packages in plugins
+if (file_exists(dirname(__FILE__) . '/../../../ioly/ioly/ioly.php')) {
+    include_once dirname(__FILE__) . '/../../../ioly/ioly/ioly.php';
+}
+
 /**
  * Class ModuleInstaller - the main installer logic
  *
@@ -199,7 +204,6 @@ class ModuleInstaller extends LibraryInstaller
      */
     public function install(InstalledRepositoryInterface $repo, PackageInterface $package)
     {
-        $this->logger->debug("install");
         parent::install($repo, $package);
         if (!$this->alwaysRunOmc) {
             $this->logger->info("running on install");
@@ -265,7 +269,6 @@ class ModuleInstaller extends LibraryInstaller
     {
         $parentPath = parent::getInstallPath($package);
         $names = $package->getNames();
-        $this->logger->debug("parentPath: $parentPath - packageNames: " . print_r($names, true));
 
         return $parentPath;
     }
