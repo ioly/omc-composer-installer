@@ -111,7 +111,8 @@ class ModuleInstaller extends LibraryInstaller
     public function initIoly()
     {
         // check if ioly plugin loaded
-        if (!class_exists('ioly')) {
+        if (!class_exists('\\ioly\\ioly')) {
+            $this->logger->warning("ioly not available!");
             return;
         }
         $this->ioly = new ioly();
@@ -146,8 +147,9 @@ class ModuleInstaller extends LibraryInstaller
     public function handleOmcPackages()
     {
         // check if ioly plugin loaded
-        if (!class_exists('ioly')) {
-            return false;
+        if (!class_exists('\\ioly\\ioly')) {
+            $this->logger->warning("ioly not available!");
+            return;
         }
         if ($this->iolyTriggered) {
             $this->logger->warning("omc install already triggered!");
